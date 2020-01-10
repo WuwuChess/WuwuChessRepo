@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/* 注册界面 */
+
 namespace WuwuChess
 {
     public partial class Register : Form
@@ -17,7 +19,7 @@ namespace WuwuChess
             InitializeComponent();
         }
 
-        private bool Check_ID(string id)  //判断id是否与数据库中已有的重复或为空，未重复返回true，重复返回false
+        private bool Check_ID(string id)  //判断用户名是否与数据库中已有的重复或为空，未重复返回true，重复返回false
         {
             if(id != "")
             {
@@ -35,7 +37,7 @@ namespace WuwuChess
         }
 
         string yourID = "";
-        private void Allow_Click(object sender, EventArgs e)
+        private void Allow_Click(object sender, EventArgs e)  //可用性检测，防止用户名与数据库中的信息重复
         {
             if(Check_ID(ID.Text))
             {
@@ -49,7 +51,7 @@ namespace WuwuChess
             }
         }
 
-        private void OK_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)  //确认注册
         {
             if(Password.Text == "")
             {
@@ -57,7 +59,7 @@ namespace WuwuChess
             }
             else
             {
-                if (Password.Text == PasswordAgain.Text && yourID != "")
+                if (Password.Text == PasswordAgain.Text && yourID != "")  //密码无误且用户名验证有效
                 {
                     Set_account(yourID, Password.Text, Nickname.Text);
                     MessageBox.Show("注册成功");

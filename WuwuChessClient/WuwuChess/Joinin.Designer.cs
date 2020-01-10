@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Joinin));
             this.Sure = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -46,6 +47,7 @@
             this.Sure.TabIndex = 15;
             this.Sure.Text = "确定";
             this.Sure.UseVisualStyleBackColor = true;
+            this.Sure.Click += new System.EventHandler(this.Sure_Click);
             // 
             // label3
             // 
@@ -113,8 +115,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Number);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Joinin";
-            this.Text = "Joinin";
+            this.Text = "加入房间";
             this.ResumeLayout(false);
             this.PerformLayout();
 
