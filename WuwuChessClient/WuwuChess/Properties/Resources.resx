@@ -121,11 +121,23 @@
   <data name="帅" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\帅.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="紅馬" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\紅馬.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="紅車" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\紅車.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="勾" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\勾.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="仕" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\仕.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="象" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\象.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="叉" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\叉.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="黑馬" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\黑馬.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,31 +157,28 @@
   <data name="黑炮" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\黑炮.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="卒" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\卒.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="黑車" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\黑車.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="红炮" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\红炮.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="board" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\board.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="紅車" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\紅車.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="仕" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\仕.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="卒" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\卒.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="士" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\士.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="象" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\象.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lobbyback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lobbyback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="叉" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\叉.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="board" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\board.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="勾" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\勾.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="七星聚会" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\七星聚会.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

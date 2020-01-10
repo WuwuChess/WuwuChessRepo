@@ -29,7 +29,7 @@ namespace WuwuChess
             }
         }
 
-        private void Set_account(string id,string password)  //向数据库中写入用户名和密码
+        private void Set_account(string id,string password, string name)  //向数据库中写入用户名、昵称和密码
         {
 
         }
@@ -51,19 +51,26 @@ namespace WuwuChess
 
         private void OK_Click(object sender, EventArgs e)
         {
-            if(Password.Text == PasswordAgain.Text && yourID != "")
+            if(Password.Text == "")
             {
-                Set_account(yourID, Password.Text);
-                MessageBox.Show("注册成功");
-                this.Close();
+                MessageBox.Show("请输入密码");
             }
-            else if(Password.Text != PasswordAgain.Text)
+            else
             {
-                MessageBox.Show("两次输入的密码不一致");
-            }
-            else if(yourID == "")
-            {
-                MessageBox.Show("用户名无效或未进行可用性检测");
+                if (Password.Text == PasswordAgain.Text && yourID != "")
+                {
+                    Set_account(yourID, Password.Text, Nickname.Text);
+                    MessageBox.Show("注册成功");
+                    this.Close();
+                }
+                else if (Password.Text != PasswordAgain.Text)
+                {
+                    MessageBox.Show("两次输入的密码不一致");
+                }
+                else if (yourID == "")
+                {
+                    MessageBox.Show("用户名无效或未进行可用性检测");
+                }
             }
         }
     }

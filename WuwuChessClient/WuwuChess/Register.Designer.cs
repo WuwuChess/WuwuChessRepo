@@ -37,6 +37,8 @@
             this.Allow = new System.Windows.Forms.Button();
             this.Allowed = new System.Windows.Forms.PictureBox();
             this.OK = new System.Windows.Forms.Button();
+            this.Nickname = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Allowed)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(45, 39);
+            this.label2.Location = new System.Drawing.Point(45, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 21);
             this.label2.TabIndex = 1;
@@ -64,7 +66,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(12, 70);
+            this.label3.Location = new System.Drawing.Point(12, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 21);
             this.label3.TabIndex = 2;
@@ -79,7 +81,7 @@
             // 
             // Password
             // 
-            this.Password.Location = new System.Drawing.Point(155, 39);
+            this.Password.Location = new System.Drawing.Point(155, 72);
             this.Password.Name = "Password";
             this.Password.PasswordChar = '*';
             this.Password.Size = new System.Drawing.Size(137, 21);
@@ -87,7 +89,7 @@
             // 
             // PasswordAgain
             // 
-            this.PasswordAgain.Location = new System.Drawing.Point(155, 70);
+            this.PasswordAgain.Location = new System.Drawing.Point(155, 103);
             this.PasswordAgain.Name = "PasswordAgain";
             this.PasswordAgain.PasswordChar = '*';
             this.PasswordAgain.Size = new System.Drawing.Size(137, 21);
@@ -106,6 +108,7 @@
             // Allowed
             // 
             this.Allowed.BackColor = System.Drawing.Color.Transparent;
+            this.Allowed.BackgroundImage = global::WuwuChess.Properties.Resources.Q;
             this.Allowed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Allowed.Location = new System.Drawing.Point(379, 10);
             this.Allowed.Name = "Allowed";
@@ -118,17 +121,36 @@
             this.OK.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OK.Location = new System.Drawing.Point(299, 39);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(100, 52);
+            this.OK.Size = new System.Drawing.Size(100, 85);
             this.OK.TabIndex = 8;
             this.OK.Text = "确认";
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
+            // Nickname
+            // 
+            this.Nickname.Location = new System.Drawing.Point(155, 39);
+            this.Nickname.Name = "Nickname";
+            this.Nickname.Size = new System.Drawing.Size(137, 21);
+            this.Nickname.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(45, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 21);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "昵  称：";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 100);
+            this.ClientSize = new System.Drawing.Size(408, 131);
+            this.Controls.Add(this.Nickname);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.Allowed);
             this.Controls.Add(this.Allow);
@@ -157,5 +179,7 @@
         private System.Windows.Forms.Button Allow;
         private System.Windows.Forms.PictureBox Allowed;
         private System.Windows.Forms.Button OK;
+        private System.Windows.Forms.TextBox Nickname;
+        private System.Windows.Forms.Label label4;
     }
 }
