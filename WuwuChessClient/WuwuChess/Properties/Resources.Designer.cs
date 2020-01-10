@@ -103,9 +103,29 @@ namespace WuwuChess.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 勾 {
+            get {
+                object obj = ResourceManager.GetObject("勾", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 卒 {
             get {
                 object obj = ResourceManager.GetObject("卒", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 叉 {
+            get {
+                object obj = ResourceManager.GetObject("叉", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
