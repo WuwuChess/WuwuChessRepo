@@ -24,5 +24,17 @@ namespace WuwuChess
         {
             Application.Exit();
         }
+
+        private void FriendStart_Click(object sender, EventArgs e)
+        {
+            NewRoom newroom = new NewRoom(this);
+            newroom.Show();
+        }
+
+        private void FriendIn_Click(object sender, EventArgs e)
+        {
+            Joinin joinin = new Joinin();
+            joinin.Show();
+        }
     }
 }

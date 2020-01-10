@@ -49,17 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Board.Designer.cs">
+      <DependentUpon>Board.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Joinin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Joinin.Designer.cs">
+      <DependentUpon>Joinin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lobby.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Lobby.Designer.cs">
       <DependentUpon>Lobby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewRoom.Designer.cs">
+      <DependentUpon>NewRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,11 +88,20 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Board.resx">
+      <DependentUpon>Board.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Joinin.resx">
+      <DependentUpon>Joinin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lobby.resx">
       <DependentUpon>Lobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewRoom.resx">
+      <DependentUpon>NewRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,9 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\board.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\兵.png" />
@@ -155,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ico.ico" />
+    <None Include="Resources\board.jpg" />
     <None Include="Resources\七星聚会.png" />
     <None Include="Resources\lobbyback.png" />
   </ItemGroup>
