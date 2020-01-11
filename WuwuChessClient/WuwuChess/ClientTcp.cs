@@ -99,11 +99,19 @@ namespace ClientTcp
         public int SendLogin(string user_name,string password_)
         {
             JObject postData = new JObject();
+            postData.Add("type", "login");
             postData.Add("userName", user_name);
             postData.Add("password", password_);
+            postData.Add("listenerip", listenerIp);
             string result = PostUrl(postData.ToString());
-            //TODO:处理返回字符串
-            return 200;
+            switch (result) {
+                case "200":
+                    return 200;
+                case "901":
+                    return 901;
+                default:
+                    return 404;
+            }
         }
         /// <summary>
         /// 发送注册请求
@@ -164,7 +172,28 @@ namespace ClientTcp
         {
             return 200;
         }
-        //public int SendMove(int table_id,Point a,Point b)
+        /// <summary>
+        /// 发送移动子的消息，此时应已经确定用户userName
+        /// </summary>
+        /// <param name="table_id">当前房间号</param>
+        /// <param name="sx">起点横坐标</param>
+        /// <param name="sy">起点纵坐标</param>
+        /// <param name="ex">终点横坐标</param>
+        /// <param name="ey">终点纵坐标</param>
+        /// <returns>成功发送返回200，其他状态见文件开始</returns>
+        public int SendMove(int table_id,int sx,int sy,int ex,int ey)
+        {
+            return 200;
+        }
+        /// <summary>
+        /// 发送检查用户名是否已经存在的消息
+        /// </summary>
+        /// <param name="user_name">拟定用户名</param>
+        /// <returns>不存在通过检查返回200，其他状态见文件开始</returns>
+        public int SendCheck(string user_name)
+        {
+            return 200;
+        }
 
     }
 }
