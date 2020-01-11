@@ -138,13 +138,11 @@ namespace WuwuChess
         }
         public static void Change(ref Chess a, ref Chess b)//a子位移到b子
         {
-            if(b.type != chess_type.blank)
-                Board.
             Chess c = new Chess_blank();
             c.PB = b.PB;
             switch (a.type)
             {
-                case chess_type.zu:
+                case chess_type.zu:  
                     b = new Chess_zu(a.side); break;
                 case chess_type.pao:
                     b = new Chess_pao(a.side); break;
