@@ -39,6 +39,9 @@ namespace WuwuChess
         {
             side = player_type.blank;
             type = chess_type.blank;
+            PB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            PB.Size = new System.Drawing.Size(76, 76);
+            PB.BackColor = System.Drawing.Color.Transparent;
         }
         public int GetX() { return chosenX; }
         public int GetY() { return chosenY; }
