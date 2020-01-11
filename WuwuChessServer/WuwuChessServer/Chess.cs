@@ -61,6 +61,11 @@ namespace WuwuChessServer
             chessboard[ex,ey] = chessboard[sx,sy];
             chessboard[sx,sy] = ' ';
         }
+        public bool End()
+        {
+            if (eaten.Peek().id == 'K' || eaten.Peek().id == 'k') return true;
+            return false;
+        }
         public void Regret()
         {
             Info eaten_info = eaten.Pop();
