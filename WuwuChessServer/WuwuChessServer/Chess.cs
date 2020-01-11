@@ -18,14 +18,8 @@ namespace WuwuChessServer
             x = X;
             y = Y;
         }
-        char id;
-        int x, y;
-    }
-    public class User
-    {
-        public string name, id, password;
-        public int win, lose, draw;
-        public string chess_manual;//记录棋谱
+        public char id;
+        public int x, y;
     }
     class Desk
     {
@@ -33,21 +27,21 @@ namespace WuwuChessServer
         {
             for (int i = 0; i < 10; ++i)
                 for (int j = 0; j < 10; ++j)
-                    chessboard[i, j] = " ";
-            chessboard[0, 0] = chessboard[0, 8] = "R";
-            chessboard[9, 0] = chessboard[9, 8] = "r";
-            chessboard[0, 1] = chessboard[0, 7] = "N";
-            chessboard[9, 1] = chessboard[9, 7] = "n";
-            chessboard[0, 2] = chessboard[0, 6] = "B";
-            chessboard[9, 2] = chessboard[9, 6] = "b";
-            chessboard[0, 3] = chessboard[0, 5] = "A";
-            chessboard[9, 3] = chessboard[0, 5] = "a";
-            chessboard[0, 4] = "K";
-            chessboard[9, 4] = "k";
-            chessboard[2, 1] = chessboard[2, 7] = "C";
-            chessboard[7, 1] = chessboard[7, 7] = "c";
-            chessboard[3, 0] = chessboard[3, 2] = chessboard[3, 4] = chessboard[3, 6] = chessboard[3, 8] = "P";
-            chessboard[6, 0] = chessboard[6, 2] = chessboard[6, 4] = chessboard[6, 6] = chessboard[6, 8] = "p";       
+                    chessboard[i, j] = ' ';
+            chessboard[0, 0] = chessboard[0, 8] = 'R';
+            chessboard[9, 0] = chessboard[9, 8] = 'r';
+            chessboard[0, 1] = chessboard[0, 7] = 'N';
+            chessboard[9, 1] = chessboard[9, 7] = 'n';
+            chessboard[0, 2] = chessboard[0, 6] = 'B';
+            chessboard[9, 2] = chessboard[9, 6] = 'b';
+            chessboard[0, 3] = chessboard[0, 5] = 'A';
+            chessboard[9, 3] = chessboard[0, 5] = 'a';
+            chessboard[0, 4] = 'K';
+            chessboard[9, 4] = 'k';
+            chessboard[2, 1] = chessboard[2, 7] = 'C';
+            chessboard[7, 1] = chessboard[7, 7] = 'c';
+            chessboard[3, 0] = chessboard[3, 2] = chessboard[3, 4] = chessboard[3, 6] = chessboard[3, 8] = 'P';
+            chessboard[6, 0] = chessboard[6, 2] = chessboard[6, 4] = chessboard[6, 6] = chessboard[6, 8] = 'p';       
         }
         public char[,] chessboard = new char[10,9];
         public User red = null, blue = null;
@@ -66,7 +60,7 @@ namespace WuwuChessServer
             eaten.Push(Info(chessboard[ex][ey], ex, ey));
             eating.Push(Info(chessboard[sx][sy], sx, sy));
             chessboard[ex][ey] = chessboard[sx][sy];
-            chessboard[sx][sy] = " ";
+            chessboard[sx][sy] = ' ';
         }
         public void Regret()
         {
@@ -84,11 +78,11 @@ namespace WuwuChessServer
         public Desk[] desks = new Desk[99];
         public void CreateDesk(int num)
         {
-            Desk[num] = new Desk();
+            desks[num] = new Desk();
         }
         public void DeleteDesk(int num)
         {
-            Desk[num] = null;
+            desks[num] = null;
         }
         public bool EnterDesk(User user,int num)
         {
