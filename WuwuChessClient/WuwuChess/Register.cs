@@ -42,7 +42,7 @@ namespace WuwuChess
             bool legal = true;
             for (int i = 0;i != setID.Length;++i)
             {
-                if ((setID[i] <= '0' || setID[i] >= '9') && (setID[i] <= 'A' || setID[i] >= 'Z') && (setID[i] <= 'a' || setID[i] >= 'z'))
+                if ((setID[i] < '0' || setID[i] > '9') && (setID[i] < 'A' || setID[i] > 'Z') && (setID[i] < 'a' || setID[i] > 'z'))
                     legal = false;
             }
             if (legal)
