@@ -134,23 +134,23 @@ namespace WuwuChess
 
         private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
         {
-            ChosenX = TxBack(e.X);
-            ChosenY = TyBack(e.Y);
+            int CurX = TxBack(e.X);
+            int CurY = TyBack(e.Y);
             MessageBox.Show(ChosenX.ToString()+" "+ChosenY.ToString());
             if (ChosenX < 1 || ChosenX > 8 || ChosenY < 0 || ChosenY > 9)
                 return;
-            if(checkerboard[ChosenX][ChosenY].type != chess_type.blank && Chosen)
+            if(checkerboard[CurX][ChosenY].type != chess_type.blank && Chosen)
             {
                 bool CanMove = false;
                 foreach (Chess i in avail)
-                    if(i.GetX() == ChosenX && i.GetY() == ChosenY)
+                    if(i.GetX() == CurX && i.GetY() == CurY)
                     {
                         CanMove = true;
                         break;
                     }
                 if(CanMove)
                 {
-                    Chess.Change(ref , ref checkerboard[ChosenX][ChosenY]);
+                    Chess.Change(ref , ref checkerboard[CurX][CurY]);
                 }
                 avail.Clear();
             }
