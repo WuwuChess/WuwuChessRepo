@@ -99,11 +99,11 @@ namespace WuwuChess
         }
         private int TxBack(float X)
         {
-            return (int)((X + 38) / 80);
+            return (int)((X - 2) / 80);
         }
         private int TyBack(float Y)
         {
-            return (int)((805 - Y) / 80);
+            return (int)((845 - Y) / 80);
         }
         private void Finish(object sender, FormClosingEventArgs e)  //关闭对局房间
         {
@@ -118,6 +118,9 @@ namespace WuwuChess
         private void 黑车1_Click(object sender, EventArgs e)
         {
             Chess che = FindObject(黑车1);
+            ChosenX = che.GetX();
+            ChosenY = che.GetY();
+            Chosen = true;
             for(int i = 0;i < 10; ++i)
                 for(int j = 0;j < 9; ++j)
                     if(che.Move_judge(sender,i,j,checkerboard))                    
@@ -136,7 +139,7 @@ namespace WuwuChess
         {
             int CurX = TxBack(e.X);
             int CurY = TyBack(e.Y);
-            MessageBox.Show(ChosenX.ToString()+" "+ChosenY.ToString());
+            MessageBox.Show(ChosenX.ToString() + " " + ChosenY.ToString());
             if (ChosenX < 1 || ChosenX > 8 || ChosenY < 0 || ChosenY > 9)
                 return;
             if(checkerboard[CurX][ChosenY].type != chess_type.blank && Chosen)
@@ -150,15 +153,16 @@ namespace WuwuChess
                     }
                 if(CanMove)
                 {
-                    Chess.Change(ref , ref checkerboard[CurX][CurY]);
+                    Chess.Change(ref checkerboard[ChosenX][ChosenY], ref checkerboard[CurX][CurY]);
                 }
                 avail.Clear();
             }
+            Chosen = false;
         }
 
         private void 卒1_Click(object sender, EventArgs e)
         {
-            //if()
+            
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
