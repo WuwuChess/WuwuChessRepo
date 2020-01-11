@@ -73,6 +73,8 @@ namespace ServerTcp
                 break;
                 case "move":
                 break;
+                case "check":
+                    break;
                 default:
                 break;
             }
@@ -82,17 +84,8 @@ namespace ServerTcp
 
             SendHeader(sHttpVersion, sMimeType, responseData.Length, " 200 OK", ref stream);
             SendToBrowser(Encoding.UTF8.GetBytes(responseData.ToString()), ref stream);
-            //TODO:确定报文具体格式进行解析
-            try
-            {
-
-            }
-            catch(Exception e)
-            {
-
-            }
-
-
+            stream.Close();
+            client.Close();
         }
         public void SendHeader(string sHttpVersion, string sMIMEHeader, int iTotBytes, string sStatusCode, ref NetworkStream mySocket)
         {
