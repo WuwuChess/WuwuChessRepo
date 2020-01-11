@@ -11,27 +11,98 @@ using Newtonsoft.Json.Linq;
 
 namespace ClientTcp
 {
+    /// <summary>
+    /// 部分代码参考WebGIS相关
+    /// </summary>
+    class HttpThreadHandler
+    {
+        public TcpListener myListener;
+        public void HandleThread()
+        {
+            TcpClient client = myListener.AcceptTcpClient();
+            NetworkStream stream = client.GetStream();
+
+            //请求接收报文
+            byte[] data = new byte[1024];
+            int bytes = stream.Read(data, 0, data.Length);
+            string requestData = Encoding.ASCII.GetString(data, 0, bytes);
+            Console.WriteLine(requestData);//在控制台中查看报文内容
+            //TODO:确定报文具体格式进行解析
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+
+            }
+
+        }
+    }
     public class Listener
     {
+        //需要一些连接棋盘逻辑和其他内存数据的接口
+        public string clientIp;
+        public Listener()
+        {
+
+        }
 
     }
     public class Sender
     {
+        public string listenerIp;//需要告知服务器自己的接收端ip地址
         public string serverIp;
         public string userName;
-        public Sender(string server_ip)
+        public Sender(string listener_ip, string server_ip)
         {
+            listenerIp = listener_ip;
             serverIp = server_ip;
         }
-
         /// <summary>
-        /// 发送登录请求
+        /// 向服务器发送一个post请求
+        /// </summary>
+        /// <param name="postData">json格式字符串</param>
+        /// <returns>返回服务器的返回内容</returns>
+        string PostUrl(string postData)
+        {
+            string result = "";
+            HttpWebRequest req = WebRequest.Create("http://" + serverIp) as HttpWebRequest;
+            req.Method = "POST";
+            req.Timeout = 800;
+            req.ContentType = "application/json";
+            byte[] data = Encoding.UTF8.GetBytes(postData);
+            req.ContentLength = data.Length;
+            using(Stream reqStream = req.GetRequestStream())
+            {
+                reqStream.Write(data, 0, data.Length);
+                reqStream.Close();
+            }
+            HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+            Stream stream = resp.GetResponseStream();
+            using(StreamReader sr=new StreamReader(stream))
+            {
+                result = sr.ReadToEnd();
+                sr.Close();
+            }
+            stream.Close();
+            resp.Close();
+            req.Abort();
+            return result;
+        }
+        /// <summary>
+        /// 发送登录请求，同时告知服务器自己的接收端口号
         /// </summary>
         /// <param name="user_name">用户名</param>
         /// <param name="password_">未加密密码</param>
         /// <returns>成功登录返回200，其他状态见文件开始</returns>
         public int SendLogin(string user_name,string password_)
         {
+            JObject postData = new JObject();
+            postData.Add("userName", user_name);
+            postData.Add("password", password_);
+            string result = PostUrl(postData.ToString());
+            //TODO:处理返回字符串
             return 200;
         }
         /// <summary>
