@@ -143,7 +143,12 @@ namespace ClientTcp
         public string SendSearch(string obj)
         {
             JObject postData = new JObject();
-            return "";
+            postData.Add("type", "search");
+            postData.Add("obj", obj);
+            if (obj == "manual")
+                postData.Add("username", userName);
+            string result = PostUrl(postData.ToString());
+            return result;
         }
         /// <summary>
         /// 发送创建房间请求，此时应已经确定用户userName

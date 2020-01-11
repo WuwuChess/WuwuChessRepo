@@ -78,6 +78,11 @@
     <Compile Include="Board.Designer.cs">
       <DependentUpon>Board.cs</DependentUpon>
     </Compile>
+    <Compile Include="Board2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Board2.resx</DependentUpon>
+    </Compile>
     <Compile Include="Che.cs" />
     <Compile Include="Chess.cs" />
     <Compile Include="ClientTcp.cs" />
@@ -127,7 +132,13 @@
     <Compile Include="User.cs" />
     <Compile Include="Xiang.cs" />
     <Compile Include="Zu.cs" />
-    <EmbeddedResource Include="Board2.resx" />
+    <EmbeddedResource Include="Board.resx">
+      <DependentUpon>Board.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Board2.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Board2.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
