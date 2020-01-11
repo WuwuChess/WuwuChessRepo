@@ -8,7 +8,7 @@ namespace WuwuChess
 {
     public class User
     {
-        public string name, id, password;
+        public string name;
         public int win, lose, draw;
         public string chess_manual;//记录棋谱
     }
