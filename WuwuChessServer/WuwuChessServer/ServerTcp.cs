@@ -6,8 +6,10 @@ using System.Net.Sockets;
 using System.Net;
 using System.IO;
 using System.Threading;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-namespace WuwuServerTcpListener
+namespace ServerTcp
 {
     //部分代码参考WebGIS相关
     class HttpThreadHandler
@@ -34,5 +36,14 @@ namespace WuwuServerTcpListener
             }
 
         }
+    }
+
+    public class Listener
+    {
+
+    }
+    public class Sender
+    {
+
     }
 }
