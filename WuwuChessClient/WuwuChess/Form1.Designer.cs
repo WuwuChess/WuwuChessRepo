@@ -109,6 +109,7 @@
             this.Watch.TabIndex = 7;
             this.Watch.Text = "查看棋谱";
             this.Watch.UseVisualStyleBackColor = true;
+            this.Watch.Click += new System.EventHandler(this.Watch_Click);
             // 
             // label3
             // 
