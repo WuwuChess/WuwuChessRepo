@@ -89,9 +89,10 @@
             this.帅.BackColor = System.Drawing.Color.Transparent;
             this.帅.BackgroundImage = global::WuwuChess.Properties.Resources.帅;
             this.帅.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.帅.Location = new System.Drawing.Point(360, 720);
+            this.帅.Location = new System.Drawing.Point(540, 1080);
+            this.帅.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.帅.Name = "帅";
-            this.帅.Size = new System.Drawing.Size(75, 75);
+            this.帅.Size = new System.Drawing.Size(112, 112);
             this.帅.TabIndex = 1;
             this.帅.TabStop = false;
             // 
@@ -117,8 +118,9 @@
             this.ChessBoard.Controls.Add(this.红炮1);
             this.ChessBoard.Controls.Add(this.兵1);
             this.ChessBoard.Location = new System.Drawing.Point(0, 0);
+            this.ChessBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ChessBoard.Name = "ChessBoard";
-            this.ChessBoard.Size = new System.Drawing.Size(800, 800);
+            this.ChessBoard.Size = new System.Drawing.Size(1200, 1200);
             this.ChessBoard.TabIndex = 0;
             this.ChessBoard.TabStop = false;
             // 
@@ -127,9 +129,10 @@
             this.红车2.BackColor = System.Drawing.Color.Transparent;
             this.红车2.BackgroundImage = global::WuwuChess.Properties.Resources.紅車;
             this.红车2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.红车2.Location = new System.Drawing.Point(680, 720);
+            this.红车2.Location = new System.Drawing.Point(1020, 1080);
+            this.红车2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.红车2.Name = "红车2";
-            this.红车2.Size = new System.Drawing.Size(75, 75);
+            this.红车2.Size = new System.Drawing.Size(112, 112);
             this.红车2.TabIndex = 9;
             this.红车2.TabStop = false;
             // 
@@ -138,9 +141,10 @@
             this.红马2.BackColor = System.Drawing.Color.Transparent;
             this.红马2.BackgroundImage = global::WuwuChess.Properties.Resources.紅馬;
             this.红马2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.红马2.Location = new System.Drawing.Point(600, 720);
+            this.红马2.Location = new System.Drawing.Point(900, 1080);
+            this.红马2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.红马2.Name = "红马2";
-            this.红马2.Size = new System.Drawing.Size(75, 75);
+            this.红马2.Size = new System.Drawing.Size(112, 112);
             this.红马2.TabIndex = 8;
             this.红马2.TabStop = false;
             // 
@@ -149,9 +153,10 @@
             this.相2.BackColor = System.Drawing.Color.Transparent;
             this.相2.BackgroundImage = global::WuwuChess.Properties.Resources.相;
             this.相2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.相2.Location = new System.Drawing.Point(520, 720);
+            this.相2.Location = new System.Drawing.Point(780, 1080);
+            this.相2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.相2.Name = "相2";
-            this.相2.Size = new System.Drawing.Size(75, 75);
+            this.相2.Size = new System.Drawing.Size(112, 112);
             this.相2.TabIndex = 7;
             this.相2.TabStop = false;
             // 
@@ -160,9 +165,10 @@
             this.仕2.BackColor = System.Drawing.Color.Transparent;
             this.仕2.BackgroundImage = global::WuwuChess.Properties.Resources.仕;
             this.仕2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.仕2.Location = new System.Drawing.Point(440, 720);
+            this.仕2.Location = new System.Drawing.Point(660, 1080);
+            this.仕2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.仕2.Name = "仕2";
-            this.仕2.Size = new System.Drawing.Size(75, 75);
+            this.仕2.Size = new System.Drawing.Size(112, 112);
             this.仕2.TabIndex = 6;
             this.仕2.TabStop = false;
             // 
@@ -171,9 +177,10 @@
             this.仕1.BackColor = System.Drawing.Color.Transparent;
             this.仕1.BackgroundImage = global::WuwuChess.Properties.Resources.仕;
             this.仕1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.仕1.Location = new System.Drawing.Point(280, 720);
+            this.仕1.Location = new System.Drawing.Point(420, 1080);
+            this.仕1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.仕1.Name = "仕1";
-            this.仕1.Size = new System.Drawing.Size(75, 75);
+            this.仕1.Size = new System.Drawing.Size(112, 112);
             this.仕1.TabIndex = 5;
             this.仕1.TabStop = false;
             // 
@@ -182,9 +189,10 @@
             this.相1.BackColor = System.Drawing.Color.Transparent;
             this.相1.BackgroundImage = global::WuwuChess.Properties.Resources.相;
             this.相1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.相1.Location = new System.Drawing.Point(200, 720);
+            this.相1.Location = new System.Drawing.Point(300, 1080);
+            this.相1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.相1.Name = "相1";
-            this.相1.Size = new System.Drawing.Size(75, 75);
+            this.相1.Size = new System.Drawing.Size(112, 112);
             this.相1.TabIndex = 4;
             this.相1.TabStop = false;
             // 
@@ -193,9 +201,10 @@
             this.红马1.BackColor = System.Drawing.Color.Transparent;
             this.红马1.BackgroundImage = global::WuwuChess.Properties.Resources.紅馬;
             this.红马1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.红马1.Location = new System.Drawing.Point(120, 720);
+            this.红马1.Location = new System.Drawing.Point(180, 1080);
+            this.红马1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.红马1.Name = "红马1";
-            this.红马1.Size = new System.Drawing.Size(75, 75);
+            this.红马1.Size = new System.Drawing.Size(112, 112);
             this.红马1.TabIndex = 3;
             this.红马1.TabStop = false;
             // 
@@ -204,9 +213,10 @@
             this.红车1.BackColor = System.Drawing.Color.Transparent;
             this.红车1.BackgroundImage = global::WuwuChess.Properties.Resources.紅車;
             this.红车1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.红车1.Location = new System.Drawing.Point(40, 720);
+            this.红车1.Location = new System.Drawing.Point(60, 1080);
+            this.红车1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.红车1.Name = "红车1";
-            this.红车1.Size = new System.Drawing.Size(75, 75);
+            this.红车1.Size = new System.Drawing.Size(112, 112);
             this.红车1.TabIndex = 2;
             this.红车1.TabStop = false;
             // 
@@ -215,9 +225,10 @@
             this.兵5.BackColor = System.Drawing.Color.Transparent;
             this.兵5.BackgroundImage = global::WuwuChess.Properties.Resources.兵;
             this.兵5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.兵5.Location = new System.Drawing.Point(685, 487);
+            this.兵5.Location = new System.Drawing.Point(1028, 730);
+            this.兵5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.兵5.Name = "兵5";
-            this.兵5.Size = new System.Drawing.Size(65, 65);
+            this.兵5.Size = new System.Drawing.Size(98, 98);
             this.兵5.TabIndex = 13;
             this.兵5.TabStop = false;
             // 
@@ -226,9 +237,10 @@
             this.兵4.BackColor = System.Drawing.Color.Transparent;
             this.兵4.BackgroundImage = global::WuwuChess.Properties.Resources.兵;
             this.兵4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.兵4.Location = new System.Drawing.Point(525, 487);
+            this.兵4.Location = new System.Drawing.Point(788, 730);
+            this.兵4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.兵4.Name = "兵4";
-            this.兵4.Size = new System.Drawing.Size(65, 65);
+            this.兵4.Size = new System.Drawing.Size(98, 98);
             this.兵4.TabIndex = 12;
             this.兵4.TabStop = false;
             // 
@@ -237,9 +249,10 @@
             this.兵3.BackColor = System.Drawing.Color.Transparent;
             this.兵3.BackgroundImage = global::WuwuChess.Properties.Resources.兵;
             this.兵3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.兵3.Location = new System.Drawing.Point(366, 487);
+            this.兵3.Location = new System.Drawing.Point(549, 730);
+            this.兵3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.兵3.Name = "兵3";
-            this.兵3.Size = new System.Drawing.Size(65, 65);
+            this.兵3.Size = new System.Drawing.Size(98, 98);
             this.兵3.TabIndex = 11;
             this.兵3.TabStop = false;
             // 
@@ -248,9 +261,10 @@
             this.兵2.BackColor = System.Drawing.Color.Transparent;
             this.兵2.BackgroundImage = global::WuwuChess.Properties.Resources.兵;
             this.兵2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.兵2.Location = new System.Drawing.Point(210, 487);
+            this.兵2.Location = new System.Drawing.Point(315, 730);
+            this.兵2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.兵2.Name = "兵2";
-            this.兵2.Size = new System.Drawing.Size(65, 65);
+            this.兵2.Size = new System.Drawing.Size(98, 98);
             this.兵2.TabIndex = 10;
             this.兵2.TabStop = false;
             // 
@@ -259,9 +273,10 @@
             this.红炮2.BackColor = System.Drawing.Color.Transparent;
             this.红炮2.BackgroundImage = global::WuwuChess.Properties.Resources.红炮;
             this.红炮2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.红炮2.Location = new System.Drawing.Point(605, 569);
+            this.红炮2.Location = new System.Drawing.Point(908, 854);
+            this.红炮2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.红炮2.Name = "红炮2";
-            this.红炮2.Size = new System.Drawing.Size(65, 65);
+            this.红炮2.Size = new System.Drawing.Size(98, 98);
             this.红炮2.TabIndex = 9;
             this.红炮2.TabStop = false;
             // 
@@ -270,9 +285,10 @@
             this.红炮1.BackColor = System.Drawing.Color.Transparent;
             this.红炮1.BackgroundImage = global::WuwuChess.Properties.Resources.红炮;
             this.红炮1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.红炮1.Location = new System.Drawing.Point(130, 569);
+            this.红炮1.Location = new System.Drawing.Point(195, 854);
+            this.红炮1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.红炮1.Name = "红炮1";
-            this.红炮1.Size = new System.Drawing.Size(65, 65);
+            this.红炮1.Size = new System.Drawing.Size(98, 98);
             this.红炮1.TabIndex = 8;
             this.红炮1.TabStop = false;
             // 
@@ -281,9 +297,10 @@
             this.兵1.BackColor = System.Drawing.Color.Transparent;
             this.兵1.BackgroundImage = global::WuwuChess.Properties.Resources.兵;
             this.兵1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.兵1.Location = new System.Drawing.Point(51, 487);
+            this.兵1.Location = new System.Drawing.Point(76, 730);
+            this.兵1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.兵1.Name = "兵1";
-            this.兵1.Size = new System.Drawing.Size(65, 65);
+            this.兵1.Size = new System.Drawing.Size(98, 98);
             this.兵1.TabIndex = 3;
             this.兵1.TabStop = false;
             // 
@@ -292,9 +309,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::WuwuChess.Properties.Resources.帅;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(366, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(549, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(98, 98);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -303,9 +321,10 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::WuwuChess.Properties.Resources.紅車;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(685, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(1028, 18);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(98, 98);
             this.pictureBox2.TabIndex = 18;
             this.pictureBox2.TabStop = false;
             // 
@@ -314,9 +333,10 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::WuwuChess.Properties.Resources.紅馬;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(605, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(908, 18);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox3.Size = new System.Drawing.Size(98, 98);
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
             // 
@@ -325,9 +345,10 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::WuwuChess.Properties.Resources.相;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(525, 12);
+            this.pictureBox4.Location = new System.Drawing.Point(788, 18);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox4.Size = new System.Drawing.Size(98, 98);
             this.pictureBox4.TabIndex = 16;
             this.pictureBox4.TabStop = false;
             // 
@@ -336,9 +357,10 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImage = global::WuwuChess.Properties.Resources.仕;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(447, 12);
+            this.pictureBox5.Location = new System.Drawing.Point(670, 18);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox5.Size = new System.Drawing.Size(98, 98);
             this.pictureBox5.TabIndex = 15;
             this.pictureBox5.TabStop = false;
             // 
@@ -347,9 +369,10 @@
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.BackgroundImage = global::WuwuChess.Properties.Resources.仕;
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(287, 12);
+            this.pictureBox6.Location = new System.Drawing.Point(430, 18);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox6.Size = new System.Drawing.Size(98, 98);
             this.pictureBox6.TabIndex = 14;
             this.pictureBox6.TabStop = false;
             // 
@@ -358,9 +381,10 @@
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.BackgroundImage = global::WuwuChess.Properties.Resources.相;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(210, 12);
+            this.pictureBox7.Location = new System.Drawing.Point(315, 18);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox7.Size = new System.Drawing.Size(98, 98);
             this.pictureBox7.TabIndex = 13;
             this.pictureBox7.TabStop = false;
             // 
@@ -369,9 +393,10 @@
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.BackgroundImage = global::WuwuChess.Properties.Resources.紅馬;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(130, 12);
+            this.pictureBox8.Location = new System.Drawing.Point(195, 18);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox8.Size = new System.Drawing.Size(98, 98);
             this.pictureBox8.TabIndex = 12;
             this.pictureBox8.TabStop = false;
             // 
@@ -380,17 +405,18 @@
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.BackgroundImage = global::WuwuChess.Properties.Resources.紅車;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(51, 12);
+            this.pictureBox9.Location = new System.Drawing.Point(76, 18);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox9.Size = new System.Drawing.Size(98, 98);
             this.pictureBox9.TabIndex = 11;
             this.pictureBox9.TabStop = false;
             // 
             // Board
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 799);
+            this.ClientSize = new System.Drawing.Size(1401, 1050);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
@@ -401,6 +427,7 @@
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.ChessBoard);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Board";
             this.Text = "Board";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Finish);
