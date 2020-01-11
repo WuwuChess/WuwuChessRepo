@@ -100,9 +100,9 @@ namespace WuwuChess
                     dt1 = ds1.Tables[0];//获得数据集表record(id,win,lose,draw)
                 }
                 cnn.Close();
-                user.id = dt.Columns[0].ToString();
+                //user.id = dt.Columns[0].ToString();
                 user.name = dt.Columns[1].ToString();
-                user.password = dt.Columns[1].ToString();
+                //user.password = dt.Columns[1].ToString();
 
                 user.win = Convert.ToInt32(dt1.Columns[1].ToString());
                 user.lose = Convert.ToInt32(dt1.Columns[2].ToString());
