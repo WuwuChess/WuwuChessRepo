@@ -127,9 +127,7 @@
     <Compile Include="User.cs" />
     <Compile Include="Xiang.cs" />
     <Compile Include="Zu.cs" />
-    <EmbeddedResource Include="Board.resx">
-      <DependentUpon>Board.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Board2.resx" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

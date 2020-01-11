@@ -115,19 +115,6 @@ namespace WuwuChess
             int y = TyBack(c.Location.Y);
             return checkerboard[x][y];
         }
-        private void 黑车1_Click(object sender, EventArgs e)
-        {
-            Chess che = FindObject(黑车1);
-            ChosenX = che.GetX();
-            ChosenY = che.GetY();
-            Chosen = true;
-            for(int i = 0;i < 10; ++i)
-                for(int j = 0;j < 9; ++j)
-                    if(che.Move_judge(sender,i,j,checkerboard))                    
-                        avail.Add(checkerboard[i][j]);
-            pictureBox1.Refresh();
-        }
-
         
         private void 悔棋_Click(object sender, EventArgs e)
         {
