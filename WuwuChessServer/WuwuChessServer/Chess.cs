@@ -44,6 +44,7 @@ namespace WuwuChessServer
         }
         public char[,] chessboard = new char[10,9];
         public User red = null, blue = null;
+        public List<User> audience=new List<User>();
         public List<string> comments = new List<string>();
         private Stack<Info> eaten = new Stack<Info>();
         private Stack<Info> eating = new Stack<Info>();
@@ -75,6 +76,7 @@ namespace WuwuChessServer
     class Lobby
     {
         public Desk[] desks = new Desk[99];
+        public List<User> users = new List<User>();
         public void CreateDesk(int num)
         {
             desks[num] = new Desk();
