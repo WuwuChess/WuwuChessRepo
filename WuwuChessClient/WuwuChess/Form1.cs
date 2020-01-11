@@ -97,7 +97,7 @@ namespace WuwuChess
 
                 if (adapter1.Fill(ds1) > 0)
                 {
-                    dt1 = ds1.Tables[0];//获得数据集表record(id,win,lose,draw,chess_manual)
+                    dt1 = ds1.Tables[0];//获得数据集表record(id,win,lose,draw)
                 }
                 cnn.Close();
                 user.id = dt.Columns[0].ToString();
@@ -108,7 +108,7 @@ namespace WuwuChess
                 user.lose = Convert.ToInt32(dt1.Columns[2].ToString());
                 user.draw = Convert.ToInt32(dt1.Columns[3].ToString());
 
-                user.chess_manual = dt1.Columns[4].ToString();
+                //user.chess_manual = dt1.Columns[4].ToString();
             }
             catch (Exception error)
             {
