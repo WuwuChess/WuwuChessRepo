@@ -122,7 +122,18 @@ namespace ClientTcp
         /// <returns>成功注册返回200，其他状态见文件开始</returns>
         public int SendRegister(string user_name,string nick_name,string password_)
         {
-            return 200;
+            JObject postData = new JObject();
+            postData.Add("type", "register");
+            postData.Add("username", user_name);
+            postData.Add("nickname", nick_name);
+            postData.Add("password", password_);
+            string result = PostUrl(postData.ToString());
+            switch (result) {
+                case "200":
+                    return 200;
+                default:
+                    return 404;
+            }
         }
         /// <summary>
         /// 发送搜索请求，此时应已经确定用户userName
@@ -131,7 +142,13 @@ namespace ClientTcp
         /// <returns>json格式字符串，表示玩家列表或房间状态</returns>
         public string SendSearch(string obj)
         {
-            return "";
+            JObject postData = new JObject();
+            postData.Add("type", "search");
+            postData.Add("obj", obj);
+            if (obj == "manual")
+                postData.Add("username", userName);
+            string result = PostUrl(postData.ToString());
+            return result;
         }
         /// <summary>
         /// 发送创建房间请求，此时应已经确定用户userName
@@ -140,7 +157,7 @@ namespace ClientTcp
         /// <param name="password">当id为1-11时密码设置为空，其余可以设置密码</param>
         /// <param name="isRed">自己执先手为true</param>
         /// <returns>成功创建返回200，其他状态见文件开始</returns>
-        public int SendCreate(int table_id,string password,bool isRed)
+        public int SendCreate(int table_id,bool isRed,string password="")
         {
             return 200;
         }
@@ -151,7 +168,18 @@ namespace ClientTcp
         /// <returns>成功准备返回200，其他状态见文件开始</returns>
         public int SendReady(int table_id)
         {
-            return 200;
+            JObject postData = new JObject();
+            postData.Add("type", "ready");
+            postData.Add("tableid", Convert.ToString(table_id));
+            postData.Add("username", userName);
+            string result = PostUrl(postData.ToString());
+            switch (result)
+            {
+                case "200":
+                    return 200;
+                default:
+                    return 404;
+            }
         }
         /// <summary>
         /// 请求悔棋，此时应已经确定用户userName
@@ -183,7 +211,22 @@ namespace ClientTcp
         /// <returns>成功发送返回200，其他状态见文件开始</returns>
         public int SendMove(int table_id,int sx,int sy,int ex,int ey)
         {
-            return 200;
+            JObject postData = new JObject();
+            postData.Add("type", "move");
+            postData.Add("tableid", table_id);
+            postData.Add("sx", sx);
+            postData.Add("sy", sy);
+            postData.Add("ex", ex);
+            postData.Add("ey", ey);
+            postData.Add("username", userName);
+            string result = PostUrl(postData.ToString());
+            switch (result)
+            {
+                case "200":
+                    return 200;
+                default:
+                    return 404;
+            }
         }
         /// <summary>
         /// 发送检查用户名是否已经存在的消息
@@ -192,7 +235,28 @@ namespace ClientTcp
         /// <returns>不存在通过检查返回200，其他状态见文件开始</returns>
         public int SendCheck(string user_name)
         {
-            return 200;
+            JObject postData = new JObject();
+            postData.Add("type", "check");
+            postData.Add("username", user_name);
+            string result = PostUrl(postData.ToString());
+            switch (result)
+            {
+                case "200":
+                    return 200;
+                case "902":
+                    return 902;
+                default:
+                    return 404;
+            }
+        }
+        /// <summary>
+        /// 发送请求加入房间的消息
+        /// </summary>
+        /// <param name="table_id">房间号</param>
+        /// <param name="password">房间密码可选</param>
+        /// <returns>房间状态信息，由此建立本地内存房间</returns>
+        public string SendJoin(int table_id, string password=""){
+            return "";
         }
 
     }

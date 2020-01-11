@@ -9,6 +9,7 @@ using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Database;
+using WuwuChessServer;
 /// <summary>
 /// 状态码说明
 /// 200 成功
@@ -23,6 +24,7 @@ namespace ServerTcp
     {
         public TcpListener myListener;
         public SqlConnector connector;
+        public Lobby lobby;
         public void HandleThread()
         {
             TcpClient client = myListener.AcceptTcpClient();
@@ -49,12 +51,13 @@ namespace ServerTcp
                     {
                         string userName = (string)postData["username"];
                         string password = (string)postData["password"];
-                        bool check=connector.Check(userName,password);//TODO:插入数据库查询接口
+                        bool check=connector.Check(userName,password);
                         if (check)
                         {
                             responseData = "200";
+                            lobby.users.Add(connector.Get_User(userName));
                             string listenerIp = (string)postData["listenerip"];
-                            //TODO:修改用户类中的监听ip地址
+                            lobby.users[lobby.users.Count - 1].listenerIp = listenerIp;
                         }
                         else
                         {
@@ -72,16 +75,93 @@ namespace ServerTcp
                     }
                     break;
                 case "search":
+                    {
+                        string obj = (string)postData["obj"];
+                        switch (obj) {
+                            case "users":
+                                {
+                                    responseData += Convert.ToString(lobby.users.Count) + "\n";
+                                    foreach(User user in lobby.users)
+                                    {
+                                        responseData += user.ToString() + "\n";
+                                    }
+                                }
+                                break;
+                            case "tables":
+                                {
+
+                                }
+                                break;
+                            case "manual":
+                                {
+
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
                 case "create":
+                    {
+
+                    }
                     break;
                 case "ready":
+                    {
+                        int tableId = (int)postData["tableid"];
+                        string username = (string)postData["username"];
+                        if (lobby.desks[tableId].red.id.Equals(username))
+                        {
+                            lobby.desks[tableId].redReady = true;
+                        responseData = "200";
+                        }
+                        else if(lobby.desks[tableId].blue.id.Equals(username))
+                        {
+                            lobby.desks[tableId].blueReady = true;
+                            responseData = "200";
+                        }
+                        else
+                        {
+                            responseData = "404";
+                        }
+                        int iStartPos1 = requestData.IndexOf("HTTP", 1);
+                        string sHttpVersion1 = requestData.Substring(iStartPos1, 8);
+                        String sMimeType1 = "text/html";
+
+                        SendHeader(sHttpVersion1, sMimeType1, responseData.Length, " 200 OK", ref stream);
+                        SendToBrowser(Encoding.UTF8.GetBytes(responseData.ToString()), ref stream);
+                        stream.Close();
+                        client.Close();
+                        if (lobby.desks[tableId].redReady && lobby.desks[tableId].blueReady)
+                        {
+
+                        }
+                    }
                     break;
                 case "retract":
                     break;
                 case "chat":
                     break;
                 case "move":
+                    {
+                        int tableId = (int)postData["tableid"];
+                        string userName = (string)postData["username"];
+                        int sx = (int)postData["sx"];
+                        int sy = (int)postData["sy"];
+                        int ex = (int)postData["ex"];
+                        int ey = (int)postData["ey"];
+                        responseData = "200";
+                        int iStartPos1 = requestData.IndexOf("HTTP", 1);
+                        string sHttpVersion1 = requestData.Substring(iStartPos1, 8);
+                        String sMimeType1 = "text/html";
+
+                        SendHeader(sHttpVersion1, sMimeType1, responseData.Length, " 200 OK", ref stream);
+                        SendToBrowser(Encoding.UTF8.GetBytes(responseData.ToString()), ref stream);
+                        stream.Close();
+                        client.Close();
+                        lobby.desks[tableId].Move(sx, sy, ex, ey);
+                    }
                     break;
                 case "check":
                     {
@@ -155,10 +235,12 @@ namespace ServerTcp
         string[] userNames;
         TcpListener listener;
         SqlConnector myConnector;
+        Lobby lobby;
         int port = 2110;
         public Listener()
         {
             myConnector = new SqlConnector();
+            lobby = new Lobby();
             listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
             listener.Start();
             Console.WriteLine("WuwuChess server started at http://{0}.\n", listener.LocalEndpoint);
@@ -173,6 +255,7 @@ namespace ServerTcp
                 HttpThreadHandler handler = new HttpThreadHandler();
                 handler.myListener = listener;
                 handler.connector = myConnector;
+                handler.lobby = lobby;
                 ThreadStart threadStart = new ThreadStart(handler.HandleThread);
                 Thread handlerThread = new Thread(threadStart);
                 handlerThread.Name = "Created at " + DateTime.Now.ToString();

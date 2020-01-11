@@ -114,7 +114,7 @@ namespace Database
 
         public User Get_User(string id)  //获取用户信息
         {
-            User user = new User();
+            User user;
             sqlStr = "select * from wuwuchess.user where id = " + id + ";";//读取user表
             string sqlStr1 = "select * from wuwuchess.record where id = " + id + ";";//读取record表
             MySqlConnection cnn = null;
@@ -144,21 +144,22 @@ namespace Database
                     dt1 = ds1.Tables[0];//获得数据集表record(id,win,lose,draw)
                 }
                 cnn.Close();
+                user = new User(dt.Columns[1].ToString(), dt.Columns[0].ToString());
                 user.id = dt.Columns[0].ToString();
                 user.name = dt.Columns[1].ToString();
-                user.password = dt.Columns[1].ToString();
 
                 user.win = Convert.ToInt32(dt1.Columns[1].ToString());
                 user.lose = Convert.ToInt32(dt1.Columns[2].ToString());
                 user.draw = Convert.ToInt32(dt1.Columns[3].ToString());
+                return user;
 
                 //user.chess_manual = dt1.Columns[4].ToString();
             }
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
+                return null;
             }
-            return user;
         }
     }
 }
