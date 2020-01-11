@@ -31,43 +31,56 @@ namespace WuwuChess
                 {
                     checkerboard[i][j] = new Chess_blank();
                 }
-            checkerboard[0][0] = new Chess_che(player_type.blue);
-            checkerboard[0][1] = new Chess_ma(player_type.blue);
-            checkerboard[0][2] = new Chess_xiang(player_type.blue);
-            checkerboard[0][3] = new Chess_shi(player_type.blue);
-            checkerboard[0][4] = new Chess_jiang(player_type.blue);
-            checkerboard[0][5] = new Chess_shi(player_type.blue);
-            checkerboard[0][6] = new Chess_xiang(player_type.blue);
-            checkerboard[0][7] = new Chess_ma(player_type.blue);
-            checkerboard[0][8] = new Chess_che(player_type.blue);
-            checkerboard[2][1] = new Chess_pao(player_type.blue);
-            checkerboard[2][7] = new Chess_pao(player_type.blue);
-            checkerboard[3][0] = new Chess_zu(player_type.blue);
-            checkerboard[3][2] = new Chess_zu(player_type.blue);
-            checkerboard[3][4] = new Chess_zu(player_type.blue);
-            checkerboard[3][6] = new Chess_zu(player_type.blue);
-            checkerboard[3][8] = new Chess_zu(player_type.blue);
+            checkerboard[0][0] = new Chess_che(enemy);
+            checkerboard[0][1] = new Chess_ma(enemy);
+            checkerboard[0][2] = new Chess_xiang(enemy);
+            checkerboard[0][3] = new Chess_shi(enemy);
+            checkerboard[0][4] = new Chess_jiang(enemy);
+            checkerboard[0][5] = new Chess_shi(enemy);
+            checkerboard[0][6] = new Chess_xiang(enemy);
+            checkerboard[0][7] = new Chess_ma(enemy);
+            checkerboard[0][8] = new Chess_che(enemy);
+            checkerboard[2][1] = new Chess_pao(enemy);
+            checkerboard[2][7] = new Chess_pao(enemy);
+            checkerboard[3][0] = new Chess_zu(enemy);
+            checkerboard[3][2] = new Chess_zu(enemy);
+            checkerboard[3][4] = new Chess_zu(enemy);
+            checkerboard[3][6] = new Chess_zu(enemy);
+            checkerboard[3][8] = new Chess_zu(enemy);
 
 
-            checkerboard[6][0] = new Chess_zu(player_type.red);
-            checkerboard[6][2] = new Chess_zu(player_type.red);
-            checkerboard[6][4] = new Chess_zu(player_type.red);
-            checkerboard[6][6] = new Chess_zu(player_type.red);
-            checkerboard[6][8] = new Chess_zu(player_type.red);
-            checkerboard[7][1] = new Chess_pao(player_type.red);
-            checkerboard[7][7] = new Chess_pao(player_type.red);
-            checkerboard[9][0] = new Chess_che(player_type.red);
-            checkerboard[9][1] = new Chess_ma(player_type.red);
-            checkerboard[9][2] = new Chess_xiang(player_type.red);
-            checkerboard[9][3] = new Chess_shi(player_type.red);
-            checkerboard[9][4] = new Chess_jiang(player_type.red);
-            checkerboard[9][5] = new Chess_shi(player_type.red);
-            checkerboard[9][6] = new Chess_xiang(player_type.red);
-            checkerboard[9][7] = new Chess_ma(player_type.red);
-            checkerboard[9][8] = new Chess_che(player_type.red);
+            checkerboard[6][0] = new Chess_zu(me);
+            checkerboard[6][2] = new Chess_zu(me);
+            checkerboard[6][4] = new Chess_zu(me);
+            checkerboard[6][6] = new Chess_zu(me);
+            checkerboard[6][8] = new Chess_zu(me);
+            checkerboard[7][1] = new Chess_pao(me);
+            checkerboard[7][7] = new Chess_pao(me);
+            checkerboard[9][0] = new Chess_che(me);
+            checkerboard[9][1] = new Chess_ma(me);
+            checkerboard[9][2] = new Chess_xiang(me);
+            checkerboard[9][3] = new Chess_shi(me);
+            checkerboard[9][4] = new Chess_jiang(me);
+            checkerboard[9][5] = new Chess_shi(me);
+            checkerboard[9][6] = new Chess_xiang(me);
+            checkerboard[9][7] = new Chess_ma(me);
+            checkerboard[9][8] = new Chess_che(me);
             Clearground(this,ref checkerboard);
+
+            for(int i = 0;i != 9;++i)
+            {
+                int j = 0;
+                while(j != 2)
+                {
+                    ChessBoard.Controls.Add(checkerboard[j * 9][i].PB);
+                    ++j;
+                }
+            }
         }
         public static Chess[][] checkerboard = new Chess[10][];
+
+        player_type me = player_type.red;
+        player_type enemy = player_type.blue;
        
         public Stack<Chess> EatenRed = new Stack<Chess>();
         public Stack<Chess> EatenBlack = new Stack<Chess>();
@@ -126,25 +139,37 @@ namespace WuwuChess
         {
             int CurX = TxBack(e.X);
             int CurY = TyBack(e.Y);
-            MessageBox.Show(ChosenX.ToString() + " " + ChosenY.ToString());
-            if (ChosenX < 1 || ChosenX > 8 || ChosenY < 0 || ChosenY > 9)
+            //MessageBox.Show(ChosenX.ToString() + " " + ChosenY.ToString());
+            if (CurX < 1 || CurX > 8 || CurY < 0 || CurY > 9)
                 return;
-            if(checkerboard[CurX][ChosenY].type != chess_type.blank && Chosen)
+            if (!Chosen)
             {
-                bool CanMove = false;
-                foreach (Chess i in avail)
-                    if(i.GetX() == CurX && i.GetY() == CurY)
-                    {
-                        CanMove = true;
-                        break;
-                    }
-                if(CanMove)
+                if (checkerboard[CurX][CurY].side == me)
                 {
-                    Chess.Change(ref checkerboard[ChosenX][ChosenY], ref checkerboard[CurX][CurY]);
+                    Chosen = true;
+                    ChosenX = CurX;
+                    ChosenY = CurY;
                 }
-                avail.Clear();
             }
-            Chosen = false;
+            else
+            {
+                if (checkerboard[CurX][CurY].side == player_type.blank)
+                {
+                    bool CanMove = false;
+                    foreach (Chess i in avail)
+                        if (i.GetX() == CurX && i.GetY() == CurY)
+                        {
+                            CanMove = true;
+                            break;
+                        }
+                    if (CanMove)
+                    {
+                        Chess.Change(ref checkerboard[ChosenX][ChosenY], ref checkerboard[CurX][CurY]);
+                    }
+                    avail.Clear();
+                }
+                Chosen = false;
+            }
         }
 
     
