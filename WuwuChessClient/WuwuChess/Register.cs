@@ -41,6 +41,7 @@ namespace WuwuChess
             sqlStr = "select * from wuwuchess.user where id = " + id + ";";
             MySqlConnection cnn = null;
             MySqlDataAdapter adapter = null;
+            DataTable dt = null;
             try
             {
                 cnn = new MySqlConnection(connectionStringStr);
@@ -51,13 +52,18 @@ namespace WuwuChess
 
                 if (adapter.Fill(ds) > 0)
                 {
+                    dt = ds.Tables[0];
                     cnn.Close();
+                    if(id == dt.Columns[0].ToString())//如果数据库中已经存在该用户id
+                    {
+                        return false;
+                    }
                     return true;
                 }
                 else
                 {
                     cnn.Close();
-                    return false;
+                    return true;
                 }
             }
             catch (Exception error)
@@ -69,7 +75,7 @@ namespace WuwuChess
 
         private void Set_account(string id,string password, string name)  //向数据库中写入用户名、昵称和密码
         {
-            if(!Check_ID(id))
+            if(Check_ID(id))
             {
                 MySqlConnection cnn = null;
                 MySqlCommand cmd = null;
