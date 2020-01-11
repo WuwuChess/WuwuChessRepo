@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WuwuChessServer
 {
@@ -48,29 +47,29 @@ namespace WuwuChessServer
         public List<string> comments = new List<string>();
         private Stack<Info> eaten = new Stack<Info>();
         private Stack<Info> eating = new Stack<Info>();
-        public AddComment(string s)
+        public void AddComment(string s)
         {
-            comments.Add();
+            comments.Add(s);
             //然后发给客户端
         }
         public void RedExit(){ red = null; }
         public void BlueExit() { blue = null; }
-        public void Move(int sx,int sy,int es,int ey)
+        public void Move(int sx,int sy,int ex,int ey)
         {
-            eaten.Push(Info(chessboard[ex][ey], ex, ey));
-            eating.Push(Info(chessboard[sx][sy], sx, sy));
-            chessboard[ex][ey] = chessboard[sx][sy];
-            chessboard[sx][sy] = ' ';
+            eaten.Push(new Info(chessboard[ex,ey], ex, ey));
+            eating.Push(new Info(chessboard[sx,sy], sx, sy));
+            chessboard[ex,ey] = chessboard[sx,sy];
+            chessboard[sx,sy] = ' ';
         }
         public void Regret()
         {
             Info eaten_info = eaten.Pop();
             Info eating_info = eating.Pop();
             char cen = eaten_info.id, cing = eating_info.id;
-            int xen = eaten_info.x, xing = eating.x;
-            int yen = eaten_info.y, ying = eating.y;
-            chessboard[xen][yen] = cen;
-            chessboard[xing][ying] = cing;
+            int xen = eaten_info.x, xing = eating_info.x;
+            int yen = eaten_info.y, ying = eating_info.y;
+            chessboard[xen,yen] = cen;
+            chessboard[xing,ying] = cing;
         }
     }
     class Lobby
