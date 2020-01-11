@@ -160,10 +160,7 @@ namespace WuwuChess
             Chosen = false;
         }
 
-        private void 卒1_Click(object sender, EventArgs e)
-        {
-            
-        }
+    
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
