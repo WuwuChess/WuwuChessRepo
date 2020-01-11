@@ -6,11 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.OleDb;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using ClientTcp;
 
 /* 注册界面 */
 
@@ -18,85 +15,24 @@ namespace WuwuChess
 {
     public partial class Register : Form
     {
-        public Register()
+        public Register(Sender s)
         {
             InitializeComponent();
+            mySender = s;
         }
 
-        string connectionStringStr;
-        string sqlStr;
+        Sender mySender;
 
         private void Register_Load(object sender, EventArgs e)
         {
-            connectionStringStr = GetConnectionString();
+            
         }
 
-        public static string GetConnectionString()
-        {
-            return "Data Source = 127.0.0.1;Database=wuwuchess;UserID = root;Password=lzjlzq33";
-        }
 
         private bool Check_ID(string id)  //判断用户名是否与数据库中已有的重复或为空，未重复返回true，重复返回false
         {
-            sqlStr = "select * from wuwuchess.user where id = " + id + ";";
-            MySqlConnection cnn = null;
-            MySqlDataAdapter adapter = null;
-            DataTable dt = null;
-            try
-            {
-                cnn = new MySqlConnection(connectionStringStr);
-                cnn.Open();
-
-                adapter = new MySqlDataAdapter(sqlStr, cnn);
-                DataSet ds = new DataSet();
-
-                if (adapter.Fill(ds) > 0)
-                {
-                    dt = ds.Tables[0];
-                    cnn.Close();
-                    if(id == dt.Columns[0].ToString())//如果数据库中已经存在该用户id
-                    {
-                        return false;
-                    }
-                    return true;
-                }
-                else
-                {
-                    cnn.Close();
-                    return true;
-                }
-            }
-            catch (Exception error)
-            {
-                Console.WriteLine(error.Message);
-                return false;
-            }
-        }
-
-        private void Set_account(string id,string password, string name)  //向数据库中写入用户名、昵称和密码
-        {
-            if(Check_ID(id))
-            {
-                MySqlConnection cnn = null;
-                MySqlCommand cmd = null;
-                sqlStr = "insert into user(id,name,password) values('"+id+"','"+name+"','"+password+"');";
-                int result = -1;
-                try
-                {
-                    cnn = new MySqlConnection(connectionStringStr);
-                    cnn.Open();
-
-                    cmd = new MySqlCommand();
-                    cmd.Connection = cnn;
-                    cmd.CommandText = sqlStr;
-
-                    result = cmd.ExecuteNonQuery();
-                }
-                catch (Exception error)
-                {
-                    System.Console.WriteLine(error.Message);
-                }
-            }
+            int check=mySender.SendCheck(id);
+            return check == 200;
         }
 
         string yourID = "";
@@ -143,7 +79,7 @@ namespace WuwuChess
                 {
                     if (Password.Text == PasswordAgain.Text && yourID != "")  //密码无误且用户名验证有效
                     {
-                        Set_account(yourID, Password.Text, Nickname.Text);
+                        mySender.SendRegister(yourID, Nickname.Text, Password.Text);
                         MessageBox.Show("注册成功");
                         this.Close();
                     }

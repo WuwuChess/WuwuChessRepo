@@ -8,8 +8,15 @@ namespace WuwuChess
 {
     public class User
     {
-        public string name, id, password;
+        public string name;
         public int win, lose, draw;
-        public string chess_manual;//记录棋谱
+        public User(string str)
+        {
+            string[] temp = str.Split(';');
+            name = temp[0];
+            win = int.Parse(temp[1]);
+            lose = int.Parse(temp[2]);
+            draw = int.Parse(temp[3]);
+        }
     }
 }

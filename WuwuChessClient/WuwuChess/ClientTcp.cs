@@ -255,8 +255,15 @@ namespace ClientTcp
         /// <param name="table_id">房间号</param>
         /// <param name="password">房间密码可选</param>
         /// <returns>房间状态信息，由此建立本地内存房间</returns>
-        public string SendJoin(int table_id, string password=""){
-            return "";
+        public string SendJoin(int table_id, string password="")
+        {
+            JObject postData = new JObject();
+            postData.Add("type", "join");
+            postData.Add("tableid", table_id);
+            if (!password.Equals(""))
+                postData.Add("password", password);
+            string result = PostUrl(postData.ToString());
+            return result;
         }
 
     }

@@ -177,6 +177,13 @@ namespace ServerTcp
                         }
                     }
                     break;
+                case "join":
+                    {
+                        int tableId = (int)postData["tableid"];
+                        //TODO:密码检查
+                        requestData= Convert.ToString(lobby.desks[tableId].red == null);
+                    }
+                    break;
                 default:
                     break;
             }

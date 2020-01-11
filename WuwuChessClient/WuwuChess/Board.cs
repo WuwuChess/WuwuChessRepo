@@ -14,7 +14,7 @@ namespace WuwuChess
 {
     public partial class Board : Form
     {
-        public Board(Lobby the_lobby)
+        public Board(Lobby the_lobby,string str)
         {
             lobby = the_lobby;
             pictureBox1.Location = ChessBoard.Location;
@@ -76,11 +76,21 @@ namespace WuwuChess
                     ++j;
                 }
             }
+            if (str.Equals("0"))
+            {
+                me=player_type.blue;
+                enemy = player_type.red;
+            }
+            else
+            {
+                me = player_type.red;
+                enemy = player_type.blue;
+            }
         }
         public static Chess[][] checkerboard = new Chess[10][];
 
-        player_type me = player_type.red;
-        player_type enemy = player_type.blue;
+        player_type me;
+        player_type enemy;
        
         public Stack<Chess> EatenRed = new Stack<Chess>();
         public Stack<Chess> EatenBlack = new Stack<Chess>();
