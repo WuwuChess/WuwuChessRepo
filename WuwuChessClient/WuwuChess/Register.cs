@@ -102,13 +102,30 @@ namespace WuwuChess
         string yourID = "";
         private void Allow_Click(object sender, EventArgs e)  //可用性检测，防止用户名与数据库中的信息重复
         {
-            if(Check_ID(ID.Text))
+            string setID = ID.Text;
+            bool legal = true;
+            for (int i = 0;i != setID.Length;++i)
             {
-                Allowed.BackgroundImage = Properties.Resources.勾;
-                yourID = ID.Text;
+                if ((setID[i] <= '0' || setID[i] >= '9') && (setID[i] <= 'A' || setID[i] >= 'Z') && (setID[i] <= 'a' || setID[i] >= 'z'))
+                    legal = false;
+            }
+            if (legal)
+            {
+                if (Check_ID(ID.Text))
+                {
+                    Allowed.BackgroundImage = Properties.Resources.勾;
+                    yourID = ID.Text;
+                }
+                else
+                {
+                    MessageBox.Show("该用户名已存在");
+                    Allowed.BackgroundImage = Properties.Resources.叉;
+                    yourID = "";
+                }
             }
             else
             {
+                MessageBox.Show("请使用英文字母或数字");
                 Allowed.BackgroundImage = Properties.Resources.叉;
                 yourID = "";
             }
@@ -122,19 +139,26 @@ namespace WuwuChess
             }
             else
             {
-                if (Password.Text == PasswordAgain.Text && yourID != "")  //密码无误且用户名验证有效
+                if (Password.Text.Length <= 16 && Password.Text.Length >= 6)
                 {
-                    Set_account(yourID, Password.Text, Nickname.Text);
-                    MessageBox.Show("注册成功");
-                    this.Close();
+                    if (Password.Text == PasswordAgain.Text && yourID != "")  //密码无误且用户名验证有效
+                    {
+                        Set_account(yourID, Password.Text, Nickname.Text);
+                        MessageBox.Show("注册成功");
+                        this.Close();
+                    }
+                    else if (Password.Text != PasswordAgain.Text)
+                    {
+                        MessageBox.Show("两次输入的密码不一致");
+                    }
+                    else if (yourID == "")
+                    {
+                        MessageBox.Show("用户名无效或未进行可用性检测");
+                    }
                 }
-                else if (Password.Text != PasswordAgain.Text)
+                else
                 {
-                    MessageBox.Show("两次输入的密码不一致");
-                }
-                else if (yourID == "")
-                {
-                    MessageBox.Show("用户名无效或未进行可用性检测");
+                    MessageBox.Show("密码长度为6-16位");
                 }
             }
         }

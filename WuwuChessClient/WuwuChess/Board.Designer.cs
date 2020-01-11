@@ -178,7 +178,6 @@
             this.卒1.Size = new System.Drawing.Size(114, 114);
             this.卒1.TabIndex = 40;
             this.卒1.TabStop = false;
-            this.卒1.Click += new System.EventHandler(this.卒1_Click);
             // 
             // 卒2
             // 
