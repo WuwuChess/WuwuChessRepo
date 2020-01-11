@@ -55,6 +55,7 @@
     <Compile Include="Board.Designer.cs">
       <DependentUpon>Board.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientTcp.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
