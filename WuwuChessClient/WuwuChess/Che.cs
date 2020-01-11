@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace WuwuChess
 {
     class Chess_che : Chess
     {
-        public Chess_che(player_type b)//初始化车
+        public Chess_che(player_type b)
         {
             base.type = chess_type.che;
             base.side = b;
         }
-        //判断合法性的函数
         public override bool Move_judge(object sender, int X, int Y, Chess[][] checkerboard)
         {
             int i, j, k;
@@ -45,9 +45,9 @@ namespace WuwuChess
         public override void Put_picture()
         {
             if (base.side == player_type.red)
-                this.PB.Image = global::象棋_封_.Properties.Resources.红車;
+                this.PB.Image = global::WuwuChess.Properties.Resources.紅車;
             else
-                this.PB.Image = global::象棋_封_.Properties.Resources.蓝車;
+                this.PB.Image = global::WuwuChess.Properties.Resources.黑車;
         }
     }
 }

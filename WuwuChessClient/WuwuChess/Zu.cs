@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace WuwuChess
 {
@@ -14,7 +15,7 @@ namespace WuwuChess
         }
         public override bool Move_judge(object sender, int X, int Y, Chess[][] checkerboard)
         {
-            if (this.side == player_type.blue)//蓝方卒
+            if (this.side == player_type.blue)//黑方卒
             {
                 if (Chess.chosenX < 5 && X - Chess.chosenX != 1)//在5行后选中的卒  
                 {
@@ -54,7 +55,10 @@ namespace WuwuChess
         }
         public override void Put_picture()
         {
-            ;
+            if (base.side == player_type.red)
+                this.PB.Image = global::WuwuChess.Properties.Resources.兵;
+            else
+                this.PB.Image = global::WuwuChess.Properties.Resources.卒;
         }
     }
 }

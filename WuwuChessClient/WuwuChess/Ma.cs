@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WuwuChess
 {
@@ -37,9 +38,9 @@ namespace WuwuChess
         public override void Put_picture()
         {
             if (base.side == player_type.red)
-                this.PB.Image = global::象棋_封_.Properties.Resources.红马;
+                this.PB.Image = global::WuwuChess.Properties.Resources.紅馬;
             else
-                this.PB.Image = global::象棋_封_.Properties.Resources.蓝马;
+                this.PB.Image = global::WuwuChess.Properties.Resources.黑馬;
         }
     }
 }
