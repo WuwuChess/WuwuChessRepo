@@ -168,7 +168,18 @@ namespace ClientTcp
         /// <returns>成功准备返回200，其他状态见文件开始</returns>
         public int SendReady(int table_id)
         {
-            return 200;
+            JObject postData = new JObject();
+            postData.Add("type", "ready");
+            postData.Add("tableid", Convert.ToString(table_id));
+            postData.Add("username", userName);
+            string result = PostUrl(postData.ToString());
+            switch (result)
+            {
+                case "200":
+                    return 200;
+                default:
+                    return 404;
+            }
         }
         /// <summary>
         /// 请求悔棋，此时应已经确定用户userName
@@ -200,7 +211,22 @@ namespace ClientTcp
         /// <returns>成功发送返回200，其他状态见文件开始</returns>
         public int SendMove(int table_id,int sx,int sy,int ex,int ey)
         {
-            return 200;
+            JObject postData = new JObject();
+            postData.Add("type", "move");
+            postData.Add("tableid", table_id);
+            postData.Add("sx", sx);
+            postData.Add("sy", sy);
+            postData.Add("ex", ex);
+            postData.Add("ey", ey);
+            postData.Add("username", userName);
+            string result = PostUrl(postData.ToString());
+            switch (result)
+            {
+                case "200":
+                    return 200;
+                default:
+                    return 404;
+            }
         }
         /// <summary>
         /// 发送检查用户名是否已经存在的消息

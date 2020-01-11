@@ -108,12 +108,60 @@ namespace ServerTcp
                     }
                     break;
                 case "ready":
+                    {
+                        int tableId = (int)postData["tableid"];
+                        string username = (string)postData["username"];
+                        if (lobby.desks[tableId].red.id.Equals(username))
+                        {
+                            lobby.desks[tableId].redReady = true;
+                        responseData = "200";
+                        }
+                        else if(lobby.desks[tableId].blue.id.Equals(username))
+                        {
+                            lobby.desks[tableId].blueReady = true;
+                            responseData = "200";
+                        }
+                        else
+                        {
+                            responseData = "404";
+                        }
+                        int iStartPos1 = requestData.IndexOf("HTTP", 1);
+                        string sHttpVersion1 = requestData.Substring(iStartPos1, 8);
+                        String sMimeType1 = "text/html";
+
+                        SendHeader(sHttpVersion1, sMimeType1, responseData.Length, " 200 OK", ref stream);
+                        SendToBrowser(Encoding.UTF8.GetBytes(responseData.ToString()), ref stream);
+                        stream.Close();
+                        client.Close();
+                        if (lobby.desks[tableId].redReady && lobby.desks[tableId].blueReady)
+                        {
+
+                        }
+                    }
                     break;
                 case "retract":
                     break;
                 case "chat":
                     break;
                 case "move":
+                    {
+                        int tableId = (int)postData["tableid"];
+                        string userName = (string)postData["username"];
+                        int sx = (int)postData["sx"];
+                        int sy = (int)postData["sy"];
+                        int ex = (int)postData["ex"];
+                        int ey = (int)postData["ey"];
+                        responseData = "200";
+                        int iStartPos1 = requestData.IndexOf("HTTP", 1);
+                        string sHttpVersion1 = requestData.Substring(iStartPos1, 8);
+                        String sMimeType1 = "text/html";
+
+                        SendHeader(sHttpVersion1, sMimeType1, responseData.Length, " 200 OK", ref stream);
+                        SendToBrowser(Encoding.UTF8.GetBytes(responseData.ToString()), ref stream);
+                        stream.Close();
+                        client.Close();
+                        lobby.desks[tableId].Move(sx, sy, ex, ey);
+                    }
                     break;
                 case "check":
                     {
