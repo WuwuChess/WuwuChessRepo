@@ -69,11 +69,9 @@ namespace WuwuChess
 
             for(int i = 0;i != 9;++i)
             {
-                int j = 0;
-                while(j != 2)
+                for(int j = 0;j != 10;++j)
                 {
-                    ChessBoard.Controls.Add(checkerboard[j * 9][i].PB);
-                    ++j;
+                    ChessBoard.Controls.Add(checkerboard[j][i].PB);
                 }
             }
         }
