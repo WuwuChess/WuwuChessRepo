@@ -44,6 +44,7 @@ namespace WuwuChessServer
         }
         public char[,] chessboard = new char[10,9];
         public User red = null, blue = null;
+        public bool redReady, blueReady;
         public List<User> audience=new List<User>();
         public List<string> comments = new List<string>();
         private Stack<Info> eaten = new Stack<Info>();
