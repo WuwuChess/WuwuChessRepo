@@ -40,8 +40,33 @@ namespace ServerTcp
 
     public class Listener
     {
+        //连接服务器数据库的接口
+        string[] userNames;
+        TcpListener listener;
+        int port = 2110;
+        public Listener()
+        {
+            listener = new TcpListener(IPAddress("127.0.0.1"), port);
+            listener.Start();
+            Console.WriteLine("WuwuChess server started at http://{0}.\n", myHttpListener.LocalEndpoint);
 
+            while (true)
+            {
+                while (!listener.Pending())
+                {
+                    Thread.Sleep(1000);
+                }
+                //派生线程，处理用户请求
+                HttpThreadHandler handler = new HttpThreadHandler();
+                handler.myListener = listener;
+                ThreadStart threadStart = new ThreadStart(handler.HandleThread);
+                Thread handlerThread = new Thread(threadStart);
+                handlerThread.Name = "Created at " + DateTime.Now.ToString();
+                handlerThread.Start();
+            }
+        }
     }
+
     public class Sender
     {
 
