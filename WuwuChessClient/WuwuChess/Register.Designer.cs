@@ -164,6 +164,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.Text = "注册";
+            this.Load += new System.EventHandler(this.Register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Allowed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
