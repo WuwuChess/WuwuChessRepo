@@ -23,7 +23,7 @@ namespace WuwuChess
         Lobby lobby;
         private void Sure_Click(object sender, EventArgs e)  //确认创建
         {
-            Board board = new Board(lobby);
+            Board board = new Board(lobby,"0");
             board.Show();
             lobby.Hide();  //隐藏游戏大厅
             this.Close();  //关闭本窗口

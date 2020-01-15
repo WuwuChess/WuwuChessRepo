@@ -8,6 +8,7 @@ using System.IO;
 using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
 
 namespace ClientTcp
 {
@@ -67,27 +68,34 @@ namespace ClientTcp
         string PostUrl(string postData)
         {
             string result = "";
-            HttpWebRequest req = WebRequest.Create("http://" + serverIp) as HttpWebRequest;
-            req.Method = "POST";
-            req.Timeout = 800;
-            req.ContentType = "application/json";
-            byte[] data = Encoding.UTF8.GetBytes(postData);
-            req.ContentLength = data.Length;
-            using(Stream reqStream = req.GetRequestStream())
+            try
             {
-                reqStream.Write(data, 0, data.Length);
-                reqStream.Close();
+                HttpWebRequest req = WebRequest.Create("http://" + serverIp) as HttpWebRequest;
+                req.Method = "POST";
+                req.Timeout = 800;
+                req.ContentType = "application/json";
+                byte[] data = Encoding.UTF8.GetBytes(postData);
+                req.ContentLength = data.Length;
+                using (Stream reqStream = req.GetRequestStream())
+                {
+                    reqStream.Write(data, 0, data.Length);
+                    reqStream.Close();
+                }
+                HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+                Stream stream = resp.GetResponseStream();
+                using (StreamReader sr = new StreamReader(stream))
+                {
+                    result = sr.ReadToEnd();
+                    sr.Close();
+                }
+                stream.Close();
+                resp.Close();
+                req.Abort();
             }
-            HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
-            Stream stream = resp.GetResponseStream();
-            using(StreamReader sr=new StreamReader(stream))
+            catch(Exception ex)
             {
-                result = sr.ReadToEnd();
-                sr.Close();
+                MessageBox.Show(ex.Message);
             }
-            stream.Close();
-            resp.Close();
-            req.Abort();
             return result;
         }
         /// <summary>
