@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
-using System.Windows.Forms;
+using System.Threading;
+//using System.Windows.Forms;
 
 namespace WuwuChessServer
 {
     class Time
     {
         public Timer t;
-        private Label l;
+        //private Label l;
         private double s;
         private double m;
         public double sum = 0;
@@ -20,7 +22,7 @@ namespace WuwuChessServer
             s = 0;
             m = 0;
             this.t = t;
-            this.l = L;
+            //this.l = L;
         }
         public string outtime()
         {
@@ -41,7 +43,7 @@ namespace WuwuChessServer
         {
             fen = (Convert.ToInt32(fen) + m).ToString();
             miao = (Convert.ToInt32(miao) + s).ToString();
-            l.Text = "";
+            //l = "";
             m = 0;
             s = 0;
         }
